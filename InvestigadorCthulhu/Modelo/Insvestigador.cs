@@ -27,6 +27,7 @@ public class Investigador
         get
         {
             // ✏️ TU TURNO 2: devolvé 7, 8 o 9 según la tabla de reglas.
+
             if (DES < TAM && FUE < TAM) return 7;
             if (DES > TAM && FUE > TAM) return 9;
             return 8;

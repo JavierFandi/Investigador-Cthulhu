@@ -25,6 +25,9 @@ public partial class FormCrearPersonaje : Form
         cboOcupacion_SelectedIndexChanged(cboOcupacion, EventArgs.Empty);
     }
 
+    // ---------------------------------------------------------------
+    //  Paso 1: características
+    // ---------------------------------------------------------------
     private void btnTirar_Click(object? sender, EventArgs e)
     {
         inv.TirarCaracteristicas();
@@ -50,6 +53,9 @@ public partial class FormCrearPersonaje : Form
             $"MOV {inv.MOV}   ·   BD {inv.BD}   ·   Corpulencia {inv.Corpulencia}";
     }
 
+    // ---------------------------------------------------------------
+    //  Paso 2: ocupación
+    // ---------------------------------------------------------------
     private void cboOcupacion_SelectedIndexChanged(object? sender, EventArgs e)
     {
         if (cboOcupacion.SelectedItem is not Ocupacion oc) return;
@@ -94,6 +100,7 @@ public partial class FormCrearPersonaje : Form
 
         foreach (var f in lista)
         {
+            // "Combatir (Pelea)" cuenta como de ocupación si la ocupación incluye "Combatir"
             string nombreGeneral = f.Nombre.Split(" (")[0];
             f.DeOcupacion = deOcupacion.Contains(f.Nombre)
                          || deOcupacion.Contains(nombreGeneral)
@@ -150,6 +157,9 @@ public partial class FormCrearPersonaje : Form
         dgvHabilidades.Refresh();
     }
 
+    // ---------------------------------------------------------------
+    //  Paso 4: validar y guardar
+    // ---------------------------------------------------------------
     private string? Validar(Ocupacion oc)
     {
         if (string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -207,3 +217,4 @@ public partial class FormCrearPersonaje : Form
         DialogResult = DialogResult.OK;
     }
 }
+

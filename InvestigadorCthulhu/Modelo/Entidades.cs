@@ -54,6 +54,7 @@ public class Ocupacion
     public override string ToString() => Nombre;
 }
 
+/// <summary>Una fila de la grilla de habilidades en la pantalla de creación.</summary>
 public class HabilidadFila
 {
     public string Nombre { get; set; } = "";

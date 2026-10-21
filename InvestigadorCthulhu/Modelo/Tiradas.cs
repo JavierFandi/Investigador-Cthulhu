@@ -22,7 +22,7 @@ public static class Tiradas
         if (dado == 1)
         {
             nivel = NivelExito.Critico;
-        }
+        } 
         else if ((valor < 50 && dado >= 96) || dado == 100)
         {
             nivel = NivelExito.Pifia;
