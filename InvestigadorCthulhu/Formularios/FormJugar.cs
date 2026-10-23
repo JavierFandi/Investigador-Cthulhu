@@ -11,6 +11,7 @@ public partial class FormJugar : Form
     public FormJugar(Investigador inv, PartidaGuardada? partida = null)
     {
         InitializeComponent();
+        TemaCthulhu.Aplicar(this);
         partidaInicial = partida;
         motor = new MotorHistoria(new Repositorio(), inv);
         motor.Mensaje += AgregarAlRegistro;
@@ -69,9 +70,20 @@ public partial class FormJugar : Form
             Text = texto,
             Tag = etiqueta,
             Width = flpOpciones.ClientSize.Width - 25,
-            Height = 44,
-            TextAlign = ContentAlignment.MiddleLeft
+            Height = 46,
+            TextAlign = ContentAlignment.MiddleLeft,
+            Padding = new Padding(10, 0, 0, 0),
+            Margin = new Padding(3, 4, 3, 4)
         };
+
+        TemaCthulhu.EstilizarBoton(boton);
+
+        if (etiqueta is "FORZAR")
+        {
+            boton.BackColor = Color.FromArgb(115, 35, 35); // Rojo sangre oscuro para tirada forzada
+            boton.FlatAppearance.MouseOverBackColor = Color.FromArgb(150, 45, 45);
+        }
+
         boton.Click += Boton_Click;
         return boton;
     }
@@ -110,23 +122,76 @@ public partial class FormJugar : Form
     }
 
     // Desafío Extra: Ver ficha (habilidades mayores a 40)
+    // Desafío Extra: Ver ficha con diseño personalizado Cthulhu
     private void btnVerFicha_Click(object? sender, EventArgs e)
     {
         Investigador inv = motor.Inv;
         var destacadas = inv.Habilidades
             .Where(h => h.Value > 40)
             .OrderByDescending(h => h.Value)
-            .Select(h => $"• {h.Key}: {h.Value}%")
+            .Select(h => $"  • {h.Key}: {h.Value}%")
             .ToList();
 
         string listado = destacadas.Count > 0
-            ? string.Join("\n", destacadas)
-            : "Ninguna habilidad supera el 40%.";
+            ? string.Join("\r\n", destacadas)
+            : "  Ninguna habilidad supera el 40%.";
 
-        MessageBox.Show(
-            $"Ficha de {inv.Nombre} ({inv.Ocupacion})\n\nHabilidades mayores a 40%:\n{listado}",
-            "Ficha del Investigador",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information);
+        using var formFicha = new Form
+        {
+            Text = $"Ficha de {inv.Nombre}",
+            Size = new Size(440, 480),
+            StartPosition = FormStartPosition.CenterScreen,
+            FormBorderStyle = FormBorderStyle.FixedDialog,
+            MaximizeBox = false,
+            MinimizeBox = false
+        };
+
+        var lblTituloFicha = new Label
+        {
+            Text = $"{inv.Nombre} — {inv.Ocupacion}",
+            Font = new Font("Georgia", 13F, FontStyle.Bold),
+            AutoSize = true,
+            Location = new Point(20, 18)
+        };
+
+        var lblSubtitulo = new Label
+        {
+            Text = $"FUE {inv.FUE} · CON {inv.CON} · TAM {inv.TAM} · DES {inv.DES} · INT {inv.INT} · POD {inv.POD} · EDU {inv.EDU}",
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular),
+            AutoSize = true,
+            Location = new Point(20, 50)
+        };
+
+        var txtHabilidades = new TextBox
+        {
+            Multiline = true,
+            ReadOnly = true,
+            ScrollBars = ScrollBars.Vertical,
+            Location = new Point(20, 82),
+            Size = new Size(385, 290),
+            Font = new Font("Georgia", 10.5F),
+            Text = $"HABILIDADES DESTACADAS (>40%):\r\n\r\n{listado}"
+        };
+
+        var btnCerrarFicha = new Button
+        {
+            Text = "Volver a la partida",
+            Location = new Point(120, 388),
+            Size = new Size(185, 36),
+            DialogResult = DialogResult.OK
+        };
+
+        formFicha.Controls.Add(lblTituloFicha);
+        formFicha.Controls.Add(lblSubtitulo);
+        formFicha.Controls.Add(txtHabilidades);
+        formFicha.Controls.Add(btnCerrarFicha);
+
+        // Aplicamos el mismo tema visual oscuro y deseleccionamos el texto al abrir
+        TemaCthulhu.Aplicar(formFicha);
+        formFicha.Shown += (_, _) => txtHabilidades.SelectionLength = 0;
+
+        //this.Hide(); // Oculta la ventana de juego mientras ves la ficha
+        formFicha.ShowDialog();
+        //this.Show(); // Vuelve a mostrar la ventana de juego al cerrar la ficha
     }
 }

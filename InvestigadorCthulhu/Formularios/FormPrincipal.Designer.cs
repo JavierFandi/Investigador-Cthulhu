@@ -28,25 +28,27 @@
             // 
             lblEncabezado.AutoSize = true;
             lblEncabezado.Font = new Font("Georgia", 14F, FontStyle.Bold);
-            lblEncabezado.Location = new Point(25, 20);
+            lblEncabezado.Location = new Point(72, 31);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(493, 29);
+            lblEncabezado.Size = new Size(395, 23);
             lblEncabezado.TabIndex = 0;
             lblEncabezado.Text = "La llamada de Cthulhu · Investigadores";
             // 
             // lstInvestigadores
             // 
-            lstInvestigadores.Location = new Point(25, 65);
+            lstInvestigadores.Location = new Point(72, 71);
+            lstInvestigadores.Margin = new Padding(3, 2, 3, 2);
             lstInvestigadores.Name = "lstInvestigadores";
-            lstInvestigadores.Size = new Size(460, 264);
+            lstInvestigadores.Size = new Size(403, 199);
             lstInvestigadores.TabIndex = 1;
             lstInvestigadores.SelectedIndexChanged += lstInvestigadores_SelectedIndexChanged;
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(25, 365);
+            btnCrear.Location = new Point(72, 290);
+            btnCrear.Margin = new Padding(3, 2, 3, 2);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(145, 38);
+            btnCrear.Size = new Size(127, 28);
             btnCrear.TabIndex = 2;
             btnCrear.Text = "Crear investigador";
             btnCrear.UseVisualStyleBackColor = true;
@@ -54,9 +56,10 @@
             // 
             // btnJugar
             // 
-            btnJugar.Location = new Point(180, 365);
+            btnJugar.Location = new Point(208, 290);
+            btnJugar.Margin = new Padding(3, 2, 3, 2);
             btnJugar.Name = "btnJugar";
-            btnJugar.Size = new Size(150, 38);
+            btnJugar.Size = new Size(131, 28);
             btnJugar.TabIndex = 3;
             btnJugar.Text = "Nueva partida";
             btnJugar.UseVisualStyleBackColor = true;
@@ -65,9 +68,10 @@
             // btnContinuar
             // 
             btnContinuar.Enabled = false;
-            btnContinuar.Location = new Point(340, 365);
+            btnContinuar.Location = new Point(348, 290);
+            btnContinuar.Margin = new Padding(3, 2, 3, 2);
             btnContinuar.Name = "btnContinuar";
-            btnContinuar.Size = new Size(145, 38);
+            btnContinuar.Size = new Size(127, 28);
             btnContinuar.TabIndex = 4;
             btnContinuar.Text = "Continuar";
             btnContinuar.UseVisualStyleBackColor = true;
@@ -75,14 +79,15 @@
             // 
             // FormPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(533, 425);
+            ClientSize = new Size(543, 355);
             Controls.Add(btnContinuar);
             Controls.Add(btnJugar);
             Controls.Add(btnCrear);
             Controls.Add(lstInvestigadores);
             Controls.Add(lblEncabezado);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Investigadores de Haverford";

@@ -51,62 +51,68 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(19, 38);
+            lblName.Location = new Point(17, 28);
             lblName.Name = "lblName";
-            lblName.Size = new Size(64, 20);
-            lblName.TabIndex = 0;
+            lblName.Size = new Size(51, 15);
+            lblName.TabIndex = 4;
             lblName.Text = "Nombre";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(105, 35);
+            txtNombre.Location = new Point(92, 26);
+            txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(250, 27);
+            txtNombre.Size = new Size(219, 23);
             txtNombre.TabIndex = 1;
+            txtNombre.TextAlign = HorizontalAlignment.Center;
             // 
             // lblEdad
             // 
             lblEdad.AutoSize = true;
-            lblEdad.Location = new Point(385, 38);
+            lblEdad.Location = new Point(337, 28);
             lblEdad.Name = "lblEdad";
-            lblEdad.Size = new Size(43, 20);
+            lblEdad.Size = new Size(33, 15);
             lblEdad.TabIndex = 2;
             lblEdad.Text = "Edad";
             // 
             // numEdad
             // 
-            numEdad.Location = new Point(471, 36);
+            numEdad.Location = new Point(412, 27);
+            numEdad.Margin = new Padding(3, 2, 3, 2);
             numEdad.Maximum = new decimal(new int[] { 89, 0, 0, 0 });
             numEdad.Minimum = new decimal(new int[] { 15, 0, 0, 0 });
             numEdad.Name = "numEdad";
-            numEdad.Size = new Size(62, 27);
+            numEdad.Size = new Size(77, 23);
             numEdad.TabIndex = 3;
+            numEdad.TextAlign = HorizontalAlignment.Center;
             numEdad.Value = new decimal(new int[] { 25, 0, 0, 0 });
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(19, 83);
+            label1.Location = new Point(17, 62);
             label1.Name = "label1";
-            label1.Size = new Size(80, 20);
-            lblName.TabIndex = 4;
+            label1.Size = new Size(65, 15);
+            label1.TabIndex = 16;
             label1.Text = "Ocupación";
             // 
             // cboOcupacion
             // 
             cboOcupacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cboOcupacion.FormattingEnabled = true;
-            cboOcupacion.Location = new Point(105, 80);
+            cboOcupacion.Location = new Point(92, 60);
+            cboOcupacion.Margin = new Padding(3, 2, 3, 2);
             cboOcupacion.Name = "cboOcupacion";
-            cboOcupacion.Size = new Size(250, 28);
+            cboOcupacion.Size = new Size(219, 23);
             cboOcupacion.TabIndex = 5;
+            cboOcupacion.SelectedIndexChanged += cboOcupacion_SelectedIndexChanged;
             // 
             // lblElegirCaract
             // 
             lblElegirCaract.AutoSize = true;
-            lblElegirCaract.Location = new Point(370, 83);
+            lblElegirCaract.Location = new Point(324, 62);
             lblElegirCaract.Name = "lblElegirCaract";
-            lblElegirCaract.Size = new Size(48, 20);
+            lblElegirCaract.Size = new Size(39, 15);
             lblElegirCaract.TabIndex = 14;
             lblElegirCaract.Text = "Elegir:";
             lblElegirCaract.Visible = false;
@@ -115,20 +121,23 @@
             // 
             cboCaracteristicaOcupacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cboCaracteristicaOcupacion.FormattingEnabled = true;
-            cboCaracteristicaOcupacion.Location = new Point(425, 80);
+            cboCaracteristicaOcupacion.Location = new Point(372, 60);
+            cboCaracteristicaOcupacion.Margin = new Padding(1, 2, 3, 2);
             cboCaracteristicaOcupacion.Name = "cboCaracteristicaOcupacion";
-            cboCaracteristicaOcupacion.Size = new Size(108, 28);
+            cboCaracteristicaOcupacion.Size = new Size(117, 23);
             cboCaracteristicaOcupacion.TabIndex = 15;
             cboCaracteristicaOcupacion.Visible = false;
+            cboCaracteristicaOcupacion.SelectedIndexChanged += cboCaracteristicaOcupacion_SelectedIndexChanged;
             // 
             // txtInfoOcupacion
             // 
-            txtInfoOcupacion.Location = new Point(19, 127);
+            txtInfoOcupacion.Location = new Point(17, 95);
+            txtInfoOcupacion.Margin = new Padding(3, 2, 3, 2);
             txtInfoOcupacion.Multiline = true;
             txtInfoOcupacion.Name = "txtInfoOcupacion";
             txtInfoOcupacion.ReadOnly = true;
             txtInfoOcupacion.ScrollBars = ScrollBars.Vertical;
-            txtInfoOcupacion.Size = new Size(514, 110);
+            txtInfoOcupacion.Size = new Size(472, 84);
             txtInfoOcupacion.TabIndex = 6;
             // 
             // gbCaracteristicas
@@ -143,109 +152,113 @@
             gbCaracteristicas.Controls.Add(lblTAM);
             gbCaracteristicas.Controls.Add(lblCON);
             gbCaracteristicas.Controls.Add(lblFUE);
-            gbCaracteristicas.Location = new Point(562, 35);
+            gbCaracteristicas.Location = new Point(507, 26);
+            gbCaracteristicas.Margin = new Padding(3, 2, 3, 2);
             gbCaracteristicas.Name = "gbCaracteristicas";
-            gbCaracteristicas.Size = new Size(341, 222);
+            gbCaracteristicas.Padding = new Padding(3, 2, 3, 2);
+            gbCaracteristicas.Size = new Size(320, 176);
             gbCaracteristicas.TabIndex = 7;
             gbCaracteristicas.TabStop = false;
             gbCaracteristicas.Text = "Características";
             // 
             // btnTirar
             // 
-            btnTirar.Location = new Point(92, 173);
+            btnTirar.Location = new Point(82, 129);
+            btnTirar.Margin = new Padding(3, 2, 3, 2);
             btnTirar.Name = "btnTirar";
-            btnTirar.Size = new Size(147, 29);
+            btnTirar.Size = new Size(145, 33);
             btnTirar.TabIndex = 9;
             btnTirar.Text = "Tirar Características";
             btnTirar.UseVisualStyleBackColor = true;
+            btnTirar.Click += btnTirar_Click;
             // 
             // lblSuerte
             // 
             lblSuerte.AutoSize = true;
-            lblSuerte.Location = new Point(255, 133);
+            lblSuerte.Location = new Point(235, 100);
             lblSuerte.Name = "lblSuerte";
-            lblSuerte.Size = new Size(58, 20);
+            lblSuerte.Size = new Size(44, 15);
             lblSuerte.TabIndex = 8;
             lblSuerte.Text = "label10";
             // 
             // lblEDU
             // 
             lblEDU.AutoSize = true;
-            lblEDU.Location = new Point(263, 84);
+            lblEDU.Location = new Point(242, 63);
             lblEDU.Name = "lblEDU";
-            lblEDU.Size = new Size(50, 20);
+            lblEDU.Size = new Size(38, 15);
             lblEDU.TabIndex = 7;
             lblEDU.Text = "label9";
             // 
             // lblPOD
             // 
             lblPOD.AutoSize = true;
-            lblPOD.Location = new Point(263, 39);
+            lblPOD.Location = new Point(242, 29);
             lblPOD.Name = "lblPOD";
-            lblPOD.Size = new Size(50, 20);
+            lblPOD.Size = new Size(38, 15);
             lblPOD.TabIndex = 6;
             lblPOD.Text = "label8";
             // 
             // lblINT
             // 
             lblINT.AutoSize = true;
-            lblINT.Location = new Point(141, 133);
+            lblINT.Location = new Point(123, 100);
             lblINT.Name = "lblINT";
-            lblINT.Size = new Size(50, 20);
+            lblINT.Size = new Size(38, 15);
             lblINT.TabIndex = 5;
             lblINT.Text = "label7";
             // 
             // lblAPA
             // 
             lblAPA.AutoSize = true;
-            lblAPA.Location = new Point(141, 84);
+            lblAPA.Location = new Point(123, 63);
             lblAPA.Name = "lblAPA";
-            lblAPA.Size = new Size(50, 20);
+            lblAPA.Size = new Size(38, 15);
             lblAPA.TabIndex = 4;
             lblAPA.Text = "label6";
             // 
             // lblDES
             // 
             lblDES.AutoSize = true;
-            lblDES.Location = new Point(141, 39);
+            lblDES.Location = new Point(123, 29);
             lblDES.Name = "lblDES";
-            lblDES.Size = new Size(50, 20);
+            lblDES.Size = new Size(38, 15);
             lblDES.TabIndex = 3;
             lblDES.Text = "label5";
             // 
             // lblTAM
             // 
             lblTAM.AutoSize = true;
-            lblTAM.Location = new Point(23, 133);
+            lblTAM.Location = new Point(8, 100);
             lblTAM.Name = "lblTAM";
-            lblTAM.Size = new Size(50, 20);
+            lblTAM.Size = new Size(38, 15);
             lblTAM.TabIndex = 2;
             lblTAM.Text = "label4";
             // 
             // lblCON
             // 
             lblCON.AutoSize = true;
-            lblCON.Location = new Point(23, 84);
+            lblCON.Location = new Point(8, 63);
             lblCON.Name = "lblCON";
-            lblCON.Size = new Size(50, 20);
+            lblCON.Size = new Size(38, 15);
             lblCON.TabIndex = 1;
             lblCON.Text = "label3";
             // 
             // lblFUE
             // 
             lblFUE.AutoSize = true;
-            lblFUE.Location = new Point(23, 39);
+            lblFUE.Location = new Point(8, 29);
             lblFUE.Name = "lblFUE";
-            lblFUE.Size = new Size(50, 20);
+            lblFUE.Size = new Size(38, 15);
             lblFUE.TabIndex = 0;
             lblFUE.Text = "label2";
             // 
             // lblDerivados
             // 
             lblDerivados.AutoSize = true;
-            lblDerivados.Location = new Point(19, 265);
+            lblDerivados.Location = new Point(17, 199);
             lblDerivados.Name = "lblDerivados";
-            lblDerivados.Size = new Size(50, 20);
+            lblDerivados.Size = new Size(38, 15);
             lblDerivados.TabIndex = 8;
             lblDerivados.Text = "label2";
             // 
@@ -253,9 +266,9 @@
             // 
             lblPuntosOcupacion.AutoSize = true;
             lblPuntosOcupacion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblPuntosOcupacion.Location = new Point(260, 309);
+            lblPuntosOcupacion.Location = new Point(228, 232);
             lblPuntosOcupacion.Name = "lblPuntosOcupacion";
-            lblPuntosOcupacion.Size = new Size(51, 20);
+            lblPuntosOcupacion.Size = new Size(40, 15);
             lblPuntosOcupacion.TabIndex = 9;
             lblPuntosOcupacion.Text = "label2";
             // 
@@ -263,9 +276,9 @@
             // 
             lblPuntosInteres.AutoSize = true;
             lblPuntosInteres.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblPuntosInteres.Location = new Point(19, 309);
+            lblPuntosInteres.Location = new Point(17, 232);
             lblPuntosInteres.Name = "lblPuntosInteres";
-            lblPuntosInteres.Size = new Size(51, 20);
+            lblPuntosInteres.Size = new Size(40, 15);
             lblPuntosInteres.TabIndex = 10;
             lblPuntosInteres.Text = "label2";
             // 
@@ -275,37 +288,44 @@
             dgvHabilidades.AllowUserToDeleteRows = false;
             dgvHabilidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHabilidades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHabilidades.Location = new Point(19, 355);
+            dgvHabilidades.Location = new Point(17, 266);
+            dgvHabilidades.Margin = new Padding(3, 2, 3, 2);
             dgvHabilidades.Name = "dgvHabilidades";
             dgvHabilidades.RowHeadersVisible = false;
             dgvHabilidades.RowHeadersWidth = 51;
-            dgvHabilidades.Size = new Size(884, 230);
+            dgvHabilidades.Size = new Size(810, 172);
             dgvHabilidades.TabIndex = 11;
+            dgvHabilidades.CellEndEdit += dgvHabilidades_CellEndEdit;
+            dgvHabilidades.DataBindingComplete += dgvHabilidades_DataBindingComplete;
+            dgvHabilidades.DataError += dgvHabilidades_DataError;
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(182, 615);
+            btnCancelar.Location = new Point(159, 452);
+            btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.Size = new Size(97, 31);
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(587, 615);
+            btnGuardar.Location = new Point(513, 452);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(166, 29);
+            btnGuardar.Size = new Size(166, 31);
             btnGuardar.TabIndex = 13;
             btnGuardar.Text = "Guardar investigador";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // FormCrearPersonaje
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(942, 673);
+            ClientSize = new Size(844, 505);
             Controls.Add(cboCaracteristicaOcupacion);
             Controls.Add(lblElegirCaract);
             Controls.Add(btnGuardar);
@@ -322,25 +342,17 @@
             Controls.Add(lblEdad);
             Controls.Add(txtNombre);
             Controls.Add(lblName);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormCrearPersonaje";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Crear investigador";
+            Load += FormCrearPersonaje_Load;
             ((System.ComponentModel.ISupportInitialize)numEdad).EndInit();
             gbCaracteristicas.ResumeLayout(false);
             gbCaracteristicas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHabilidades).EndInit();
             ResumeLayout(false);
             PerformLayout();
-
-            // Conectar eventos DESPUÉS de EndInit()
-            Load += FormCrearPersonaje_Load;
-            cboOcupacion.SelectedIndexChanged += cboOcupacion_SelectedIndexChanged;
-            cboCaracteristicaOcupacion.SelectedIndexChanged += cboCaracteristicaOcupacion_SelectedIndexChanged;
-            btnTirar.Click += btnTirar_Click;
-            dgvHabilidades.CellEndEdit += dgvHabilidades_CellEndEdit;
-            dgvHabilidades.DataBindingComplete += dgvHabilidades_DataBindingComplete;
-            dgvHabilidades.DataError += dgvHabilidades_DataError;
-            btnGuardar.Click += btnGuardar_Click;
         }
 
         #endregion

@@ -10,6 +10,7 @@ public partial class FormPrincipal : Form
     public FormPrincipal()
     {
         InitializeComponent();
+        TemaCthulhu.Aplicar(this);
     }
 
     private void FormPrincipal_Load(object? sender, EventArgs e)
@@ -39,21 +40,27 @@ public partial class FormPrincipal : Form
 
     private void btnCrear_Click(object? sender, EventArgs e)
     {
+        this.Hide(); // Oculta el menú principal
         using var form = new FormCrearPersonaje();
-        if (form.ShowDialog(this) == DialogResult.OK)
+        if (form.ShowDialog() == DialogResult.OK)
             CargarLista();
+        this.Show(); // Vuelve a mostrar el menú al cerrar Crear Personaje
     }
 
     private void btnJugar_Click(object? sender, EventArgs e)
     {
         if (lstInvestigadores.SelectedItem is not ItemInvestigador item)
         {
-            MessageBox.Show("Elegí un investigador de la lista.");
+            TemaCthulhu.MostrarMensaje("Elegí un investigador de la lista.", "Atención");
             return;
         }
         Investigador inv = repo.CargarInvestigador(item.Id);
+
+        this.Hide(); // Oculta el menú principal
         using var form = new FormJugar(inv);
-        form.ShowDialog(this);
+        form.ShowDialog();
+        this.Show(); // Vuelve a mostrar el menú al salir de la partida
+
         ActualizarBotonContinuar();
     }
 
@@ -63,13 +70,17 @@ public partial class FormPrincipal : Form
         PartidaGuardada? partida = repo.ObtenerPartida(item.Id);
         if (partida == null)
         {
-            MessageBox.Show("Este investigador no tiene una partida en curso.");
+            TemaCthulhu.MostrarMensaje("Este investigador no tiene una partida en curso.", "Atención");
             return;
         }
 
         Investigador inv = repo.CargarInvestigador(item.Id);
+
+        this.Hide(); // Oculta el menú principal
         using var form = new FormJugar(inv, partida);
-        form.ShowDialog(this);
+        form.ShowDialog();
+        this.Show(); // Vuelve a mostrar el menú al salir de la partida
+
         ActualizarBotonContinuar();
     }
 }

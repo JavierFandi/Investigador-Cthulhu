@@ -15,6 +15,7 @@ public partial class FormCrearPersonaje : Form
     public FormCrearPersonaje()
     {
         InitializeComponent();
+        TemaCthulhu.Aplicar(this);
     }
 
     private void FormCrearPersonaje_Load(object? sender, EventArgs e)
@@ -128,7 +129,7 @@ public partial class FormCrearPersonaje : Form
         foreach (DataGridViewRow row in dgvHabilidades.Rows)
         {
             if (row.DataBoundItem is HabilidadFila f && f.DeOcupacion)
-                row.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                row.DefaultCellStyle.BackColor = TemaCthulhu.FilaOcupacion;
         }
     }
 
@@ -139,7 +140,7 @@ public partial class FormCrearPersonaje : Form
 
     private void dgvHabilidades_DataError(object? sender, DataGridViewDataErrorEventArgs e)
     {
-        MessageBox.Show("Ingresá un número entero.");
+        TemaCthulhu.MostrarMensaje("Ingresá un número entero.", "Valor inválido");
         e.Cancel = true;
     }
 
@@ -151,8 +152,8 @@ public partial class FormCrearPersonaje : Form
         lblPuntosOcupacion.Text = $"Ocupación: {puntosOcupacion - usadosOcup} de {puntosOcupacion}";
         lblPuntosInteres.Text = $"Interés: {puntosInteres - usadosInt} de {puntosInteres}";
 
-        lblPuntosOcupacion.ForeColor = usadosOcup > puntosOcupacion ? Color.Red : SystemColors.ControlText;
-        lblPuntosInteres.ForeColor = usadosInt > puntosInteres ? Color.Red : SystemColors.ControlText;
+        lblPuntosOcupacion.ForeColor = usadosOcup > puntosOcupacion ? Color.FromArgb(255, 100, 100) : TemaCthulhu.DoradoAntiguo;
+        lblPuntosInteres.ForeColor = usadosInt > puntosInteres ? Color.FromArgb(255, 100, 100) : TemaCthulhu.DoradoAntiguo;
 
         dgvHabilidades.Refresh();
     }
@@ -198,7 +199,7 @@ public partial class FormCrearPersonaje : Form
         string? error = Validar(oc);
         if (error != null)
         {
-            MessageBox.Show(error, "Revisá el investigador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            TemaCthulhu.MostrarMensaje(error, "Revisá el investigador");
             return;
         }
 
@@ -213,7 +214,9 @@ public partial class FormCrearPersonaje : Form
         inv.Credito = inv.Habilidades["Crédito"];
 
         repo.GuardarInvestigador(inv);
-        MessageBox.Show($"{inv.Nombre} está listo para investigar.", "Guardado");
+
+        //this.Hide(); // Oculta la ventana de creación antes de mostrar el cartel
+        TemaCthulhu.MostrarMensaje($"{inv.Nombre} está listo para investigar.", "Guardado");
         DialogResult = DialogResult.OK;
     }
 }
