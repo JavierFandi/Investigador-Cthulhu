@@ -31,6 +31,12 @@ public partial class FormJugar : Form
     {
         lstRegistro.Items.Add(texto);
         lstRegistro.TopIndex = lstRegistro.Items.Count - 1;
+
+        // Efectos de sonido automáticos según el evento de la historia
+        if (texto.StartsWith("💔") || texto.StartsWith("😱") || texto.StartsWith("💀"))
+            GestorSonido.ReproducirEfecto("hit.mp3");
+        else if (texto.StartsWith("🎲") || texto.StartsWith("🔥"))
+            GestorSonido.ReproducirEfecto(texto.Contains('✔') ? "exito.mp3" : "dados.mp3");
     }
 
     private void MostrarEscena()

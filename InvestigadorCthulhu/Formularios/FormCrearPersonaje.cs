@@ -31,6 +31,7 @@ public partial class FormCrearPersonaje : Form
     // ---------------------------------------------------------------
     private void btnTirar_Click(object? sender, EventArgs e)
     {
+        GestorSonido.ReproducirEfecto("dados.mp3");
         inv.TirarCaracteristicas();
         MostrarCaracteristicas();
         CargarHabilidades();

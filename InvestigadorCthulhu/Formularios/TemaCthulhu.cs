@@ -96,7 +96,15 @@ public static class TemaCthulhu
         btn.ForeColor = TextoPergamino;
         btn.Cursor = Cursors.Hand;
         btn.Font = new Font("Georgia", 10F, FontStyle.Bold);
+
+        btn.Click -= SonidoBoton_Click;
+        btn.Click += SonidoBoton_Click;
     }
+    private static void SonidoBoton_Click(object? sender, EventArgs e)
+    {
+        InvestigadorCthulhu.Modelo.GestorSonido.ReproducirEfecto("boton.wav", 500);
+    }
+
 
     private static void EstilizarGrilla(DataGridView dgv)
     {

@@ -15,6 +15,7 @@ public partial class FormPrincipal : Form
 
     private void FormPrincipal_Load(object? sender, EventArgs e)
     {
+        GestorSonido.ReproducirMusica("ambiente.mp3");
         CargarLista();
     }
 
