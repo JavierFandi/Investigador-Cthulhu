@@ -97,12 +97,14 @@ public static class TemaCthulhu
         btn.Cursor = Cursors.Hand;
         btn.Font = new Font("Georgia", 10F, FontStyle.Bold);
 
-        btn.Click -= SonidoBoton_Click;
-        btn.Click += SonidoBoton_Click;
+        btn.MouseDown -= SonidoBoton_MouseDown;
+        btn.MouseDown += SonidoBoton_MouseDown;
     }
-    private static void SonidoBoton_Click(object? sender, EventArgs e)
+
+    private static void SonidoBoton_MouseDown(object? sender, MouseEventArgs e)
     {
-        InvestigadorCthulhu.Modelo.GestorSonido.ReproducirEfecto("boton.wav", 500);
+        if (e.Button == MouseButtons.Left)
+            InvestigadorCthulhu.Modelo.GestorSonido.ReproducirEfecto("boton.mp3", 900);
     }
 
 

@@ -31,13 +31,9 @@
     <None Update="Sonidos\exito.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Sonidos\hit.mp3">
+    <None Update="Sonidos\dano.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Sonidos\" />
   </ItemGroup>
 
 </Project>
